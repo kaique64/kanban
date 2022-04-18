@@ -1,6 +1,6 @@
 import Task from './Task';
 
-interface TaskRepository {
+interface ITaskRepository {
 
     create(task: Task): void;
     
@@ -8,4 +8,4 @@ interface TaskRepository {
 
 }
 
-export default TaskRepository;
+export default ITaskRepository;
