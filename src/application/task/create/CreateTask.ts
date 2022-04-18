@@ -1,19 +1,19 @@
 import CreateTaskDTO from './CreateTaskDTO';
-import TaskRepositoryInMemory from '../../../infra/repositories/task/TaskRepositoryInMemory';
 import Task from '../../../domain/task/Task';
+import ITaskRepository from '../../../domain/task/ITaskRepository';
 
 class CreateTask {
     
-    private readonly taskRepositoryInMemory: TaskRepositoryInMemory;
+    private readonly taskRepository: ITaskRepository;
 
-    constructor(taskRepositoryInMemory: TaskRepositoryInMemory) {
-        this.taskRepositoryInMemory = taskRepositoryInMemory;
+    constructor(taskRepositoryInMemory: ITaskRepository) {
+        this.taskRepository = taskRepositoryInMemory;
     }
 
     public execute(data: CreateTaskDTO): void {
         const newTask: Task = data.createTask();
 
-        this.taskRepositoryInMemory.create(newTask);
+        this.taskRepository.create(newTask);
     }
 
 }
