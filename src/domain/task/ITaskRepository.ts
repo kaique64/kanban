@@ -4,7 +4,7 @@ interface ITaskRepository {
 
     create(task: Task): void;
     
-    findById(id: string): Task;
+    findByName(name: string): Task;
 
 }
 

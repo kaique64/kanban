@@ -1,4 +1,5 @@
 import Task from "./Task";
+import TPriority from "./TPriority";
 
 class TaskFactory {
 

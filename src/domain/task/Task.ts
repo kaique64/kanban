@@ -1,3 +1,5 @@
+import TPriority from './TPriority';
+
 class Task {
 
     private name: string;
@@ -8,6 +10,10 @@ class Task {
         this.name = name;
         this.description = description;
         this.priority = priority;
+    }
+
+    public getName(): string {
+        return this.name;
     }
 
 }
