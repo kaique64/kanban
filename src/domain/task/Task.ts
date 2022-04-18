@@ -1,5 +1,3 @@
-type TPriority = 'Low' | 'Medium' | 'High'; 
-
 class Task {
 
     private name: string;
