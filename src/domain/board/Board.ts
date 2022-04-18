@@ -10,7 +10,7 @@ class Board {
     }
 
     public addTask(name: string, description: string): void {
-        this.tasks.push(new Task(name, description));
+        this.tasks.push(new Task(name, description, 'Low'));
     }
 
 }
