@@ -1,5 +1,5 @@
 import CreateTaskDTO from './CreateTaskDTO';
-import TaskRepositoryInMemory from '../../../infra/task/TaskRepositoryInMemory';
+import TaskRepositoryInMemory from '../../../infra/repositories/task/TaskRepositoryInMemory';
 import Task from '../../../domain/task/Task';
 
 class CreateTask {
