@@ -19,8 +19,18 @@ class TaskRepositoryWithPrismaORM implements ITaskRepository {
         });
     }
     
-    public async findByName(name: string): Promise<Task | undefined> {
-        throw new Error("Method not implemented.");
+    public async findById(id: string): Promise<Task | undefined> {
+        const task = await this.prismaClient.task.findUnique({
+            where: {
+                id,
+            },
+        });
+
+        if (!task) {
+            return undefined;
+        }
+
+        return task;
     }
     
 }
