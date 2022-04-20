@@ -5,7 +5,7 @@ interface ITaskRepository {
 
     create(data: TaskDTO): Promise<void>;
     
-    findByName(name: string): Promise<Task | undefined>;
+    findById(id: string): Promise<Task | undefined>;
 
 }
 
