@@ -1,8 +1,9 @@
 import Task from './Task';
+import TaskDTO from './TaskDTO';
 
 interface ITaskRepository {
 
-    create(task: Task): Promise<void>;
+    create(data: TaskDTO): Promise<void>;
     
     findByName(name: string): Promise<Task | undefined>;
 
