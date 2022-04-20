@@ -7,7 +7,7 @@ generator client {
     provider = "prisma-client-js"
 }
 
-model task {
+model Task {
     id String @id @default(uuid())
     name String
     description String

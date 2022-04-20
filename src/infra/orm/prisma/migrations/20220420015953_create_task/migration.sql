@@ -1,5 +1,14 @@
+/*
+  Warnings:
+
+  - You are about to drop the `task` table. If the table is not empty, all the data it contains will be lost.
+
+*/
+-- DropTable
+DROP TABLE `task`;
+
 -- CreateTable
-CREATE TABLE `task` (
+CREATE TABLE `Task` (
     `id` VARCHAR(191) NOT NULL,
     `name` VARCHAR(191) NOT NULL,
     `description` VARCHAR(191) NOT NULL,
