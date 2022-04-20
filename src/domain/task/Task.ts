@@ -7,10 +7,13 @@ class Task {
     public description: string;
     public priority: string;
 
-    constructor(name: string, description: string, priority: TPriority) {
+    constructor(name: string, description: string, priority: TPriority, id?: string) {
         this.name = name;
         this.description = description;
         this.priority = priority;
+        if (id) {
+            this.id = id;
+        }
     }
 
     /*public getName(): string {
