@@ -9,14 +9,16 @@ class TaskRepositoryWithPrismaORM implements ITaskRepository {
         private prismaClient: PrismaClient
     ) {}
 
-    public async create(data: TaskDTO): Promise<void> {
-        await this.prismaClient.task.create({
+    public async create(data: TaskDTO): Promise<Task> {
+        const task = await this.prismaClient.task.create({
             data: {
                 name: data.name,
                 description: data.description,
                 priority: data.priority,
             }
         });
+
+        return task;
     }
     
     public async findById(id: string): Promise<Task | undefined> {
