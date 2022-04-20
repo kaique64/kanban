@@ -2,6 +2,7 @@ import TPriority from './TPriority';
 
 class Task {
 
+    private id: string;
     private name: string;
     private description: string;
     private priority: TPriority;
@@ -14,6 +15,10 @@ class Task {
 
     public getName(): string {
         return this.name;
+    }
+
+    public getId(): string | undefined {
+        return this.id;
     }
 
 }
