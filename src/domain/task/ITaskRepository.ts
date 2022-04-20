@@ -2,9 +2,9 @@ import Task from './Task';
 
 interface ITaskRepository {
 
-    create(task: Task): void;
+    create(task: Task): Promise<void>;
     
-    findByName(name: string): Task;
+    findByName(name: string): Promise<Task | undefined>;
 
 }
 
