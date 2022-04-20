@@ -11,7 +11,7 @@ class TaskRepositoryInMemory implements ITaskRepository {
     }
     
     public async findById(id: string): Promise<Task | undefined> {
-        const task = this.tasks.find((task) => task.getId() === id);
+        const task = this.tasks.find((task) => task.id === id);
         
         return task;
     }
