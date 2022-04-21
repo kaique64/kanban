@@ -1,0 +1,3 @@
+interface BoardDTO {
+    name: string;
+}
