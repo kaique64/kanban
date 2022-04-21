@@ -5,9 +5,11 @@ import TaskDTO from "../../../domain/task/TaskDTO";
 
 class TaskRepositoryWithPrismaORM implements ITaskRepository {
 
-    constructor(
-        private prismaClient: PrismaClient
-    ) {}
+    private prismaClient: PrismaClient;
+
+    constructor() {
+        this.prismaClient = new PrismaClient();
+    }
 
     public async create(data: TaskDTO): Promise<Task> {
         const task = await this.prismaClient.task.create({

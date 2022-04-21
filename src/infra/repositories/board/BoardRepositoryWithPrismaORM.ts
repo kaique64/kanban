@@ -4,9 +4,11 @@ import IBoardRepository from "src/domain/board/IBoardRepository";
 
 class BoardRepositoryWithPrismaORM implements IBoardRepository {
     
-    constructor(
-        private prismaClient: PrismaClient,
-    ) {}
+    private prismaClient: PrismaClient;
+
+    constructor() {
+        this.prismaClient = new PrismaClient();
+    }
 
     public async create(data: BoardDTO): Promise<Board> {
         const board = await this.prismaClient.board.create({

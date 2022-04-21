@@ -1,13 +1,11 @@
-import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
 import BoardNotFound from "../../../../domain/board/BoardNotFound";
 import CreateTask from "../../../../application/task/create/CreateTask";
 import BoardRepositoryWithPrismaORM from "../../../../infra/repositories/board/BoardRepositoryWithPrismaORM";
 import TaskRepositoryWithPrismaORM from "../../../../infra/repositories/task/TaskRepositoryWithPrismaORM";
 
-const prismaClient = new PrismaClient();
-const taskRepository = new TaskRepositoryWithPrismaORM(prismaClient);
-const boardRepository = new BoardRepositoryWithPrismaORM(prismaClient);
+const taskRepository = new TaskRepositoryWithPrismaORM();
+const boardRepository = new BoardRepositoryWithPrismaORM();
 const createTaskUseCase = new CreateTask(taskRepository, boardRepository);
 
 class TaskController {

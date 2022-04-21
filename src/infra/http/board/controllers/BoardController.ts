@@ -3,8 +3,7 @@ import { Request, Response } from "express";
 import CreateBoard from "../../../../application/board/create/CreateBoard";
 import BoardRepositoryWithPrismaORM from "../../../../infra/repositories/board/BoardRepositoryWithPrismaORM";
 
-const prismaClient = new PrismaClient();
-const boardRepository = new BoardRepositoryWithPrismaORM(prismaClient);
+const boardRepository = new BoardRepositoryWithPrismaORM();
 const createBoardUseCase = new CreateBoard(boardRepository);
 
 class BoardController {
