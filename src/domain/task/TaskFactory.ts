@@ -5,8 +5,8 @@ class TaskFactory {
 
     private task: Task;
 
-    public withNameDescriptionPriority(name: string, description: string, priority: TPriority): TaskFactory {
-        this.task = new Task(name, description, priority);
+    public withNameDescriptionPriority(name: string, description: string, priority: TPriority, boardId: string): TaskFactory {
+        this.task = new Task(name, description, priority, boardId);
         return this;
     }
 

@@ -8,7 +8,7 @@ class TaskRepositoryInMemory implements ITaskRepository {
     private tasks: Task[] = [];
 
     public async create(data: TaskDTO): Promise<Task> {
-        const task = new Task(data.name, data.description, data.priority, uuid());
+        const task = new Task(data.name, data.description, data.priority, data.boardId, uuid());
         
         this.tasks.push(task);
 

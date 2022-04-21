@@ -16,6 +16,7 @@ class CreateTask {
             name: data.name,
             description: data.description,
             priority: data.priority as TPriority,
+            boardId: data.boardId,
         });
 
         return task;

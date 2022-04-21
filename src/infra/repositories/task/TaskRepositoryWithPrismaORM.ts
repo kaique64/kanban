@@ -15,6 +15,7 @@ class TaskRepositoryWithPrismaORM implements ITaskRepository {
                 name: data.name,
                 description: data.description,
                 priority: data.priority,
+                boardId: data.boardId
             }
         });
 
