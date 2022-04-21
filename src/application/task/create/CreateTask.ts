@@ -11,10 +11,10 @@ class CreateTask {
     private readonly boardRepository: IBoardRepository;
 
     constructor(
-        taskRepositoryInMemory: ITaskRepository, 
+        taskRepository: ITaskRepository, 
         boardRepository: IBoardRepository,
     ) {
-        this.taskRepository = taskRepositoryInMemory;
+        this.taskRepository = taskRepository;
         this.boardRepository = boardRepository;
     }
 
