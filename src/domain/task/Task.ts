@@ -2,27 +2,21 @@ import TPriority from './TPriority';
 
 class Task {
 
-    public id: string;
-    public name: string;
-    public description: string;
-    public priority: string;
+    id: string;
+    name: string;
+    description: string;
+    priority: string;
+    boardId: string;
 
-    constructor(name: string, description: string, priority: TPriority, id?: string) {
+    constructor(name: string, description: string, priority: TPriority, boardId: string, id?: string) {
         this.name = name;
         this.description = description;
         this.priority = priority;
+        this.boardId = boardId;
         if (id) {
             this.id = id;
         }
     }
-
-    /*public getName(): string {
-        return this.name;
-    }
-
-    public getId(): string | undefined {
-        return this.id;
-    }*/
 
 }
 
