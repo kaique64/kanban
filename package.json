@@ -4,7 +4,7 @@
    "main": "index.js",
    "license": "MIT",
    "scripts": {
-      "dev": "tsnd --transpile-only --ignore-watch node_modules --no-notify src/infra/webserver/server.ts",
+      "dev": "tsnd --respawn --inspect --exit-child --transpile-only --ignore-watch node_modules --no-notify src/infra/webserver/server.ts",
       "start": "node dist/infra/webserver/server.js",
       "build": "tsc --build && tsc-alias -p tsconfig.json",
       "test": "jest --runInBand --detectOpenHandles --forceExit",
