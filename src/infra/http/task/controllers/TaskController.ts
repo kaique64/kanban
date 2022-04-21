@@ -1,8 +1,9 @@
 import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
-import CreateTask from "src/application/task/create/CreateTask";
-import BoardRepositoryWithPrismaORM from "src/infra/repositories/board/BoardRepositoryWithPrismaORM";
-import TaskRepositoryWithPrismaORM from "src/infra/repositories/task/TaskRepositoryWithPrismaORM";
+import BoardNotFound from "../../../../domain/board/BoardNotFound";
+import CreateTask from "../../../../application/task/create/CreateTask";
+import BoardRepositoryWithPrismaORM from "../../../../infra/repositories/board/BoardRepositoryWithPrismaORM";
+import TaskRepositoryWithPrismaORM from "../../../../infra/repositories/task/TaskRepositoryWithPrismaORM";
 
 const prismaClient = new PrismaClient();
 const taskRepository = new TaskRepositoryWithPrismaORM(prismaClient);
@@ -12,17 +13,40 @@ const createTaskUseCase = new CreateTask(taskRepository, boardRepository);
 class TaskController {
 
     public async create(req: Request, res: Response): Promise<Response> {
-        const { board } = req.query;
-        const { name, description, priority } = req.body;
-        
-        const task = await createTaskUseCase.execute({
-            name,
-            description,
-            priority,
-            boardId: board as string,
-        });
+        let task;
 
-        return res.status(200).json(task);
+        try {
+            const { board } = req.query;
+            const { name, description, priority } = req.body;
+
+            task = await createTaskUseCase.execute({
+                name,
+                description,
+                priority,
+                boardId: board as string,
+            });
+        } catch (error) {
+            if (error instanceof BoardNotFound) {
+                return res.status(404).json({
+                    statusCode: 404,
+                    message: error.message
+                });
+            }
+        } finally {
+            if (task !== undefined && task !== null) {
+                return res.status(201).json({
+                    name: task.name,
+                    description: task.description,
+                    priority: task.priority,
+                    boardId: task.boardId,
+                });
+            } else {
+                return res.status(500).json({
+                    statusCode: 500,
+                    message: 'Internal server error',
+                });
+            }
+        }
     }
 
 }
