@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
-import BoardRepositoryWithPrismaORM from "src/infra/repositories/board/BoardRepositoryWithPrismaORM";
+import BoardRepositoryWithPrismaORM from "../../../../infra/repositories/board/BoardRepositoryWithPrismaORM";
 
 const prismaClient = new PrismaClient();
 const boardRepository = new BoardRepositoryWithPrismaORM(prismaClient);
