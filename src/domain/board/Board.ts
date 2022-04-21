@@ -1,11 +1,14 @@
-import Task from "../task/Task";
-
 class Board {
 
-    private name: string;
+    id: string;
+    name: string;
 
-    constructor(name: string) {
+    constructor(name: string, id?: string) {
         this.name = name;
+
+        if (id) {
+            this.id = id;
+        }
     }
     
 }
