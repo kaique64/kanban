@@ -3,6 +3,6 @@ import boardRoutes from "../../http/board/routes/board.routes";
 
 const routes = Router();
 
-routes.post('/board', boardRoutes);
+routes.use('/board', boardRoutes);
 
 export default routes;
