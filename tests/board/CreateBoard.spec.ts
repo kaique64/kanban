@@ -17,7 +17,7 @@ describe('Create Board Use Case', () => {
     it('should be able to create a new board', async () => {
         const boardData: BoardDTO = { name: 'To do' };
         
-        const board = await boardRepositoryInMemory.create(boardData);
+        const board = await createBoard.execute(boardData);
 
         expect(board).toHaveProperty('id');
         expect(board).toHaveProperty('name', 'To do');
