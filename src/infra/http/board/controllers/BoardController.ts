@@ -13,7 +13,14 @@ class BoardController {
 
         const board = await createBoardUseCase.execute({ name });
 
-        return res.status(200).json(board);
+        return res.status(201).json({
+            status: 201,
+            body: {
+                name: board.name,
+            },
+            success: true,
+            error: false,
+        });
     }
 
 }

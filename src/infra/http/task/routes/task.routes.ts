@@ -19,5 +19,14 @@ taskRoutes.post(
     }),
     taskController.create
 );
+taskRoutes.get(
+    '/list',
+    celebrate({
+        [Segments.QUERY]: Joi.object().keys({
+            board: Joi.string().required(),
+        }),
+    }),
+    taskController.listTasksByBoard
+)
 
 export default taskRoutes;
