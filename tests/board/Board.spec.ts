@@ -9,10 +9,10 @@ describe('Board entity', () => {
     });
 
     it('should be able to create a new board', () => {
-        const board = boardFactory.withName('Make the breakfast').create();
+        const board = boardFactory.withName('To do').create();
 
         expect(board).toHaveProperty('id');
-        expect(board).toHaveProperty('name', 'Make the breakfast');
+        expect(board).toHaveProperty('name', 'To do');
     })
 
 })

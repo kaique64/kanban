@@ -1,4 +1,5 @@
 import Board from "./Board";
+import BoardDTO from "./BoardDTO";
 
 interface IBoardRepository {
 
