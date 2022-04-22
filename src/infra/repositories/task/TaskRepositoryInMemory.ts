@@ -31,6 +31,17 @@ class TaskRepositoryInMemory implements ITaskRepository {
         return task;
     }
 
+    /**
+     * function to find the task by your id in memory
+     * @param  {string} board_id the board id, which must be a string (UUID)
+     * @return {Task[]} return a task array, empty or not
+    */
+    public async listTaskByBoard(board_id: string): Promise<Task[]> {
+        const tasksFoundByBoard = this.tasks.filter((task) => task.boardId === board_id);
+
+        return tasksFoundByBoard;
+    }
+
 }
 
 export default TaskRepositoryInMemory;
