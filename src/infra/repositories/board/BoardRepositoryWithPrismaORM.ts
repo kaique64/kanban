@@ -12,7 +12,7 @@ class BoardRepositoryWithPrismaORM implements IBoardRepository {
 
     /**
      * function to create a new board in database
-     * @param  {BoardDTO} data board informations
+     * @param  {BoardDTO} data board informations (name as string)
      * @return {Board} return board entity from domain
     */
     public async create(data: BoardDTO): Promise<Board> {
