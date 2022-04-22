@@ -38,6 +38,16 @@ class TaskRepositoryWithPrismaORM implements ITaskRepository {
         return task;
     }
     
+    public async listTaskByBoard(board_id: string): Promise<Task[]> {
+        const tasksFoundByBoard = await this.prismaClient.task.findMany({
+            where: {
+                boardId: board_id
+            }
+        })
+
+        return tasksFoundByBoard;
+    }
+
 }
 
 export default TaskRepositoryWithPrismaORM;
