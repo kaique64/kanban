@@ -5,6 +5,10 @@ import BoardRepositoryWithPrismaORM from "../../../../infra/repositories/board/B
 import TaskRepositoryWithPrismaORM from "../../../../infra/repositories/task/TaskRepositoryWithPrismaORM";
 import EmptyBoard from "../../../../domain/board/EmptyBoard";
 import ListTasksByBoard from "../../../../application/task/list-tasks-by-board/ListTasksByBoard";
+import ISuccessResponse from "../../pattern/http_response/ISuccessResponse";
+import IErrorResponse from "../../pattern/http_response/IErrorResponse";
+import TaskDTO from "../../../../domain/task/TaskDTO";
+import Task from "../../../../domain/task/Task";
 
 const taskRepository = new TaskRepositoryWithPrismaORM();
 const boardRepository = new BoardRepositoryWithPrismaORM();
@@ -13,7 +17,7 @@ const listTaskByBoardUseCase = new ListTasksByBoard(taskRepository, boardReposit
 
 class TaskController {
 
-    public async create(req: Request, res: Response): Promise<Response | undefined> {
+    public async create(req: Request, res: Response<ISuccessResponse<TaskDTO> | IErrorResponse>): Promise<Response<ISuccessResponse<TaskDTO> | IErrorResponse> | undefined> {
         let task;
 
         try {
@@ -29,7 +33,7 @@ class TaskController {
         } catch (error) {
             if (error instanceof BoardNotFound) {
                 return res.status(404).json({
-                    statusCode: 404,
+                    status: 404,
                     success: false,
                     error: true,
                     message: error.message
@@ -54,8 +58,8 @@ class TaskController {
         }
     }
 
-    public async listTasksByBoard(req: Request, res: Response): Promise<Response | undefined> {
-        let tasks;
+    public async listTasksByBoard(req: Request, res: Response<ISuccessResponse<Task[]> | IErrorResponse>): Promise<Response<ISuccessResponse<Task[]> | IErrorResponse> | undefined> {
+        let tasks: Task[] = [];
         const { board } = req.query;
 
         try {
@@ -63,7 +67,7 @@ class TaskController {
         } catch (error) {
             if (error instanceof BoardNotFound) {
                 return res.status(404).json({
-                    statusCode: 404,
+                    status: 404,
                     success: false,
                     error: true,
                     message: error.message,
@@ -72,7 +76,7 @@ class TaskController {
             
             if (error instanceof EmptyBoard) {
                 return res.status(400).json({
-                    statusCode: 400,
+                    status: 400,
                     success: false,
                     error: true,
                     message: error.message
@@ -83,7 +87,7 @@ class TaskController {
                 return res.status(200).json(
                     {
                         status: 200,
-                        body: { tasks },
+                        body: tasks,
                         success: true,
                         error: false,
                     },
