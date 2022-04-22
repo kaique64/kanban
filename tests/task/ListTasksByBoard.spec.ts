@@ -1,6 +1,7 @@
 import TaskRepositoryInMemory from '../../src/infra/repositories/task/TaskRepositoryInMemory';
 import ListTasksByBoard from '../../src/application/task/list-tasks-by-board/ListTasksByBoard';
 import BoardFactory from '../../src/domain/board/BoardFactory';
+import EmptyBoard from '../../src/domain/board/EmptyBoard';
 
 let taskRepositoryInMemory: TaskRepositoryInMemory;
 let boardFactory: BoardFactory;
@@ -33,6 +34,11 @@ describe('List Tasks By Board Use Case', () => {
     });
 
     it('should be not able to list the tasks by board with a empty list', async () => {
+        const board = boardFactory.withName('To  do').create();
+
+        await expect(
+            listTasksByBoard.execute(board.id)
+        ).rejects.toBeInstanceOf(EmptyBoard);
     });
 
     it('should be not able to list the tasks by board with non-existing board id', async () => {
