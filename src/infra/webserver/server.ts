@@ -11,6 +11,9 @@ const PORT = process.env.PORT || 5001;
 // Connect database
 const prismaClient = new PrismaClient();
 prismaClient.$connect().then(() => console.log('MySQL connected'));
+prismaClient.$connect()
+    .then(() => console.log('MySQL connected!'))
+    .catch((err) => console.log(err));
 
 app.use(express.json());
 app.use(routes);
