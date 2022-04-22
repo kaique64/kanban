@@ -10,6 +10,11 @@ class BoardRepositoryWithPrismaORM implements IBoardRepository {
         this.prismaClient = new PrismaClient();
     }
 
+    /**
+     * function to create a new board in database
+     * @param  {BoardDTO} data board informations
+     * @return {Board} return board entity from domain
+    */
     public async create(data: BoardDTO): Promise<Board> {
         const board = await this.prismaClient.board.create({
             data: {
@@ -20,6 +25,11 @@ class BoardRepositoryWithPrismaORM implements IBoardRepository {
         return board;
     }
     
+    /**
+     * function to find the board by your id in database
+     * @param  {string} id the board id, which must be a string (UUID)
+     * @return {Board | undefined} the return can be undefined or the board entity from domain
+    */
     public async findById(id: string): Promise<Board | undefined> {
         const board = await this.prismaClient.board.findUnique({
             where: {

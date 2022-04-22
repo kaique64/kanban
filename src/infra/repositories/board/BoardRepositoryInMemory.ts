@@ -5,6 +5,11 @@ class BoardRepositoryInMemory implements IBoardRepository {
     
     private boards: Board[] = [];
 
+    /**
+     * function to create a new board in memory
+     * @param  {BoardDTO} data board informations
+     * @return {Board} return board entity from domain
+    */
     public async create(data: BoardDTO): Promise<Board> {
         const board = new Board(data.name);
         
@@ -13,6 +18,11 @@ class BoardRepositoryInMemory implements IBoardRepository {
         return board;
     }
     
+    /**
+     * function to find the board by your id in memory
+     * @param  {string} id the board id, which must be a string (UUID)
+     * @return {Board | undefined} the return can be undefined or the board entity from domain
+    */
     public async findById(id: string): Promise<Board | undefined> {
         const board = this.boards.find((board) => board.id === id);
 
