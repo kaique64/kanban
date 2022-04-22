@@ -10,7 +10,7 @@ const createTaskUseCase = new CreateTask(taskRepository, boardRepository);
 
 class TaskController {
 
-    public async create(req: Request, res: Response): Promise<Response> {
+    public async create(req: Request, res: Response): Promise<Response | undefined> {
         let task;
 
         try {
@@ -37,11 +37,6 @@ class TaskController {
                     description: task.description,
                     priority: task.priority,
                     boardId: task.boardId,
-                });
-            } else {
-                return res.status(500).json({
-                    statusCode: 500,
-                    message: 'Internal server error',
                 });
             }
         }
