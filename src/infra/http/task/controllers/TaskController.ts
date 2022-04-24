@@ -30,16 +30,7 @@ class TaskController {
                 priority,
                 boardId: board as string,
             });
-        } catch (error) {
-            if (error instanceof BoardNotFound) {
-                return res.status(404).json({
-                    status: 404,
-                    success: false,
-                    error: true,
-                    message: error.message
-                });
-            }
-        } finally {
+
             if (task !== undefined && task !== null) {
                 return res.status(201).json(
                     {
@@ -55,6 +46,15 @@ class TaskController {
                     },
                 );
             }
+        } catch (error) {
+            if (error instanceof BoardNotFound) {
+                return res.status(404).json({
+                    status: 404,
+                    success: false,
+                    error: true,
+                    message: error.message
+                });
+            }
         }
     }
 
@@ -64,6 +64,17 @@ class TaskController {
 
         try {
             tasks = await listTaskByBoardUseCase.execute(board as string);
+
+            if (tasks !== undefined && tasks !== null) {
+                return res.status(200).json(
+                    {
+                        status: 200,
+                        body: tasks,
+                        success: true,
+                        error: false,
+                    },
+                );    
+            }
         } catch (error) {
             if (error instanceof BoardNotFound) {
                 return res.status(404).json({
@@ -81,17 +92,6 @@ class TaskController {
                     error: true,
                     message: error.message
                 });
-            }
-        } finally {
-            if (tasks !== undefined && tasks !== null) {
-                return res.status(200).json(
-                    {
-                        status: 200,
-                        body: tasks,
-                        success: true,
-                        error: false,
-                    },
-                );    
             }
         }
     }

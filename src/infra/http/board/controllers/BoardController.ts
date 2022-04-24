@@ -31,11 +31,20 @@ class BoardController {
         });
     }
 
-    public async list(req: Request, res: Response<ISuccessResponse<TResponseToListRequest> | IErrorResponse>): Promise<Response<ISuccessResponse<TResponseToListRequest> | IErrorResponse>> {
+    public async list(req: Request, res: Response<ISuccessResponse<TResponseToListRequest> | IErrorResponse>): Promise<Response<ISuccessResponse<TResponseToListRequest> | IErrorResponse> | undefined> {
         let boards;
 
         try {
             boards = await listBoardsUseCase.execute();
+
+            return res.status(200).json({
+                status: 200,
+                body: {
+                    boards
+                },
+                success: true,
+                error: false,
+            });
         } catch (error) {
             if (error instanceof NoBoards) {
                 return res.status(400).json({
@@ -45,15 +54,6 @@ class BoardController {
                     message: error.message,
                 })
             }
-        } finally {
-            return res.status(200).json({
-                status: 200,
-                body: {
-                    boards
-                },
-                success: true,
-                error: false,
-            });
         }
     }
 
