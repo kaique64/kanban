@@ -7,6 +7,8 @@ interface IBoardRepository {
 
     findById(id: string): Promise<Board | undefined>;
 
+    list(): Promise<Board[]>;
+
 }
 
 export default IBoardRepository;
