@@ -1,4 +1,5 @@
 import IBoardRepository from "src/domain/board/IBoardRepository";
+import NoBoards from "src/domain/board/NoBoard";
 import Board from "../../../domain/board/Board";
 
 class ListBoards {
@@ -9,6 +10,10 @@ class ListBoards {
 
     public async execute(): Promise<Board[]> {
         const boards = await this.boardRepository.list();
+
+        if (boards.length === 0) {
+            throw new NoBoards();
+        }
 
         return boards;
     }
