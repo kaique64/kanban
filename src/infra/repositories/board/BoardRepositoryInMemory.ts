@@ -30,6 +30,10 @@ class BoardRepositoryInMemory implements IBoardRepository {
 
         return board;
     }
+
+    public async list(): Promise<Board[]> {
+        return this.boards;
+    }
     
 }
 
