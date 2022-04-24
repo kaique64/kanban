@@ -14,5 +14,6 @@ boardRoutes.post(
     }),
     boardController.create,
 );
+boardRoutes.get('/list', boardController.list);
 
 export default boardRoutes;
