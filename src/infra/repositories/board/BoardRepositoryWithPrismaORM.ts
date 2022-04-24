@@ -44,6 +44,12 @@ class BoardRepositoryWithPrismaORM implements IBoardRepository {
 
         return board;
     }
+
+    public async list(): Promise<Board[]> {
+        const boards = await this.prismaClient.board.findMany();
+
+        return boards;
+    }
     
 }
 
