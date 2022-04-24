@@ -1,5 +1,5 @@
 import IBoardRepository from "src/domain/board/IBoardRepository";
-import NoBoards from "src/domain/board/NoBoard";
+import NoBoards from "../../../domain/board/NoBoard";
 import Board from "../../../domain/board/Board";
 
 class ListBoards {
