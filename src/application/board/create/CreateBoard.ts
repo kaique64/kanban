@@ -1,4 +1,5 @@
 import Board from "src/domain/board/Board";
+import BoardDTO from "src/domain/board/BoardDTO";
 import IBoardRepository from "src/domain/board/IBoardRepository";
 
 class CreateBoard {

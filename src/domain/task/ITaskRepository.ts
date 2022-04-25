@@ -7,6 +7,8 @@ interface ITaskRepository {
     
     findById(id: string): Promise<Task | undefined>;
 
+    listTaskByBoard(board_id: string): Promise<Task[]>
+
 }
 
 export default ITaskRepository;
