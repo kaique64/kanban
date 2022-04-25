@@ -2,6 +2,7 @@ import ITaskRepository from '../../../domain/task/ITaskRepository'
 import Task from '../../../domain/task/Task';
 import TaskDTO from '../../../domain/task/TaskDTO';
 import { v4 as uuid } from 'uuid';
+import UpdateBoardTaskDTO from 'src/domain/task/UpdateBoardTaskDTO';
 
 class TaskRepositoryInMemory implements ITaskRepository {
 
@@ -40,6 +41,20 @@ class TaskRepositoryInMemory implements ITaskRepository {
         const tasksFoundByBoard = this.tasks.filter((task) => task.boardId === board_id);
 
         return tasksFoundByBoard;
+    }
+
+    /**
+     * function to update the board id
+     * @param  {UpdateBoardTaskDTO} data is the board id and the task id
+     * @return {Task} return the task updated
+    */
+    public async update(data: UpdateBoardTaskDTO): Promise<Task> {
+        const taskIndex = this.tasks.findIndex((task) => task.id === data.id);
+        const task = this.tasks[taskIndex];
+
+        task.boardId = data.boardId;
+
+        return task;
     }
 
 }
