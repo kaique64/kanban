@@ -58,7 +58,7 @@ class TaskController {
         }
     }
 
-    public async listTasksByBoard(req: Request, res: Response<ISuccessResponse<Task[]> | IErrorResponse>): Promise<Response<ISuccessResponse<Task[]> | IErrorResponse> | undefined> {
+    public async listTasksByBoard(req: Request, res: Response<ISuccessResponse<{ tasks: Task[] }> | IErrorResponse>): Promise<Response<ISuccessResponse<{ tasks: Task[] }> | IErrorResponse> | undefined> {
         let tasks: Task[] = [];
         const { board } = req.query;
 
@@ -69,7 +69,7 @@ class TaskController {
                 return res.status(200).json(
                     {
                         status: 200,
-                        body: tasks,
+                        body: { tasks },
                         success: true,
                         error: false,
                     },

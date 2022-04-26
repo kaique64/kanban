@@ -43,8 +43,11 @@ class TaskRepositoryWithPrismaORM implements ITaskRepository {
         const tasksFoundByBoard = await this.prismaClient.task.findMany({
             where: {
                 boardId: board_id
-            }
-        })
+            },
+            include: {
+                board: true,
+            },
+        });
 
         return tasksFoundByBoard;
     }
