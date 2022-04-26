@@ -24,7 +24,7 @@ class UpdateBoardTask {
             throw new BoardNotFound(data.boardId);
         }
 
-        const task = await this.taskRepository.update(data);
+        const task = await this.taskRepository.updateBoardTask(data);
 
         return task;
     }
