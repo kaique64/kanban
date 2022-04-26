@@ -48,7 +48,7 @@ class TaskRepositoryInMemory implements ITaskRepository {
      * @param  {UpdateBoardTaskDTO} data is the board id and the task id
      * @return {Task} return the task updated
     */
-    public async update(data: UpdateBoardTaskDTO): Promise<Task> {
+    public async updateBoardTask(data: UpdateBoardTaskDTO): Promise<Task> {
         const taskIndex = this.tasks.findIndex((task) => task.id === data.id);
         const task = this.tasks[taskIndex];
 

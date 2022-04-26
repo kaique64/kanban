@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import UpdateBoardTaskDTO from "src/domain/task/UpdateBoardTaskDTO";
 import ITaskRepository from "../../../domain/task/ITaskRepository";
 import Task from "../../../domain/task/Task";
 import TaskDTO from "../../../domain/task/TaskDTO";
@@ -46,6 +47,12 @@ class TaskRepositoryWithPrismaORM implements ITaskRepository {
         })
 
         return tasksFoundByBoard;
+    }
+
+    public async updateBoardTask(data: UpdateBoardTaskDTO): Promise<Task> {
+        const updatedTask = await this.prismaClient.task.update({ where: { id: data.id }, data });
+
+        return updatedTask;
     }
 
 }

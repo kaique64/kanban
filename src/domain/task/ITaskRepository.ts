@@ -6,7 +6,7 @@ interface ITaskRepository {
 
     create(data: TaskDTO): Promise<Task>;
 
-    update(data: IUpdateTaskDTO): Promise<Task>;
+    updateBoardTask(data: IUpdateTaskDTO): Promise<Task>;
     
     findById(id: string): Promise<Task | undefined>;
 
