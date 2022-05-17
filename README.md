@@ -3,8 +3,6 @@
 
 This API makes it possible organize tasks easier and with friendly responses. You can create groups and we are responsible for specific tasks.
 
-![](./.github/images/header.png)
-
 ## Dependencies
 - [Node.js](https://nodejs.org/en/)
 - [Yarn](https://yarnpkg.com/pt-BR/docs/install)
