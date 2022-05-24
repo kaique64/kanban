@@ -5,9 +5,9 @@ This API makes it possible organize tasks easier and with friendly responses. Yo
 
 ## Dependencies
 - [Node.js](https://nodejs.org/en/)
-- [Yarn](https://yarnpkg.com/pt-BR/docs/install)
+- [Yarn](https://classic.yarnpkg.com/lang/en/)
 - [Docker](https://www.docker.com/)
-- [Docker Compose](https://www.docker.com/compose/)
+- [Docker Compose](https://www.docker.com/)
 
 ## Prerequisites
 Clone the project:
