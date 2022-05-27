@@ -1,9 +1,9 @@
-import CreateTask from "../../src/application/task/create/CreateTask";
-import TaskDTO from "../../src/domain/task/TaskDTO";
-import BoardFactory from '../../src/domain/board/BoardFactory';
-import TaskRepositoryInMemory from "../../src/infra/repositories/task/TaskRepositoryInMemory";
-import BoardRepositoryInMemory from "../../src/infra/repositories/board/BoardRepositoryInMemory";
-import BoardNotFound from "../../src/domain/board/BoardNotFound";
+import CreateTask from "../../../src/application/task/create/CreateTask";
+import TaskDTO from "../../../src/domain/task/TaskDTO";
+import BoardFactory from '../../../src/domain/board/BoardFactory';
+import TaskRepositoryInMemory from "../../../src/infra/repositories/task/TaskRepositoryInMemory";
+import BoardRepositoryInMemory from "../../../src/infra/repositories/board/BoardRepositoryInMemory";
+import BoardNotFound from "../../../src/domain/board/BoardNotFound";
 
 let taskRepositoryInMemory: TaskRepositoryInMemory;
 let boardFactory: BoardFactory;

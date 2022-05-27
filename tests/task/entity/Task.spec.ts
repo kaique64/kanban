@@ -1,5 +1,5 @@
-import BoardFactory from "../../src/domain/board/BoardFactory";
-import Task from "../../src/domain/task/Task";
+import BoardFactory from "../../../src/domain/board/BoardFactory";
+import Task from "../../../src/domain/task/Task";
 
 let boardFactory: BoardFactory;
 

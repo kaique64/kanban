@@ -1,8 +1,8 @@
-import TaskRepositoryInMemory from '../../src/infra/repositories/task/TaskRepositoryInMemory';
-import BoardRepositoryInMemory from '../../src/infra/repositories/board/BoardRepositoryInMemory';
-import UpdateBoardTask from '../../src/application/task/update-board-task/UpdateBoardTask';
-import TaskNotFound from '../../src/domain/task/TaskNotFound';
-import BoardNotFound from '../../src/domain/board/BoardNotFound';
+import TaskRepositoryInMemory from '../../../src/infra/repositories/task/TaskRepositoryInMemory';
+import BoardRepositoryInMemory from '../../../src/infra/repositories/board/BoardRepositoryInMemory';
+import UpdateBoardTask from '../../../src/application/task/update-board-task/UpdateBoardTask';
+import TaskNotFound from '../../../src/domain/task/TaskNotFound';
+import BoardNotFound from '../../../src/domain/board/BoardNotFound';
 
 let taskRepositoryInMemory: TaskRepositoryInMemory;
 let boardRepositoryInMemory: BoardRepositoryInMemory;
