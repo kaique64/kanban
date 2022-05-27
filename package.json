@@ -8,7 +8,7 @@
       "start": "node dist/infra/webserver/server.js",
       "build": "tsc --build && tsc-alias -p tsconfig.json",
       "test": "jest --runInBand --detectOpenHandles --forceExit",
-      "test:watch": "jest --watch",
+      "test:watch": "jest --watch --forceExit --detectOpenHandles  --watchAll --maxWorkers=1",
       "test:coverage": "jest --coverage"
    },
    "devDependencies": {
