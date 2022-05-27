@@ -1,6 +1,6 @@
-import ListBoards from '../../src/application/board/list/ListBoards';
-import BoardRepositoryInMemory from '../../src/infra/repositories/board/BoardRepositoryInMemory';
-import NoBoards from '../../src/domain/board/NoBoard';
+import ListBoards from '../../../src/application/board/list/ListBoards';
+import BoardRepositoryInMemory from '../../../src/infra/repositories/board/BoardRepositoryInMemory';
+import NoBoards from '../../../src/domain/board/NoBoard';
 
 let boardRepository: BoardRepositoryInMemory;
 let listBoardsUseCase: ListBoards;

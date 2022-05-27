@@ -1,4 +1,4 @@
-import BoardFactory from "../../src/domain/board/BoardFactory";
+import BoardFactory from "../../../src/domain/board/BoardFactory";
 
 let boardFactory: BoardFactory;
 

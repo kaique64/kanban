@@ -1,6 +1,6 @@
-import BoardRepositoryInMemory from "../../src/infra/repositories/board/BoardRepositoryInMemory";
-import CreateBoard from '../../src/application/board/create/CreateBoard';
-import BoardDTO from '../../src/domain/board/BoardDTO';
+import BoardRepositoryInMemory from "../../../src/infra/repositories/board/BoardRepositoryInMemory";
+import CreateBoard from '../../../src/application/board/create/CreateBoard';
+import BoardDTO from '../../../src/domain/board/BoardDTO';
 
 let boardRepositoryInMemory: BoardRepositoryInMemory;
 let createBoard: CreateBoard;
