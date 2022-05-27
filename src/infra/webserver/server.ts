@@ -29,3 +29,5 @@ app.use((err: Error, req: Request, res: Response, _: NextFunction) => {
 });
 
 app.listen(PORT, () => console.log(`Server is running! Access on http://localhost:${PORT}`));
+
+export default app;
